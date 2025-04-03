@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 namespace Calculos
 {
     //* Implmenta operações aritméticas */
-    public enum ConversaoTemperatura
+   
+    internal static class Aritmetica
     {
-        Nulo =0,
-        CelsiusFahrenheit,
-        FahrenheitCelsius
-    }
-    internal class Aritmetica
-    {
+
+        public enum ConversaoTemperatura
+        {
+            Nulo = 0,
+            CelsiusFahrenheit,
+            FahrenheitCelsius
+        }
 
         /// <summary>
         /// Operação Soma
@@ -22,7 +24,7 @@ namespace Calculos
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns>Retorna soma de dois números</returns>
-    public int Somar (int x, int y)
+        public static int Somar (int x, int y)
         {
             return x+y;
         }
@@ -33,17 +35,17 @@ namespace Calculos
     /// <param name="y"></param>
     /// <returns>Retorna o resultado da subtração de dois números </returns>
 
-    public int Subtrair (int x, int y)
+    public  static int Subtrair (int x, int y)
         {
             return x-y;
         }
 
-        public double ConverterTemperatura(ConversaoTemperatura conversao, double temperatura)
+        public static double ConverterTemperatura(ConversaoTemperatura conversao, double temperatura)
         {
             if (conversao == ConversaoTemperatura.CelsiusFahrenheit)
                 return temperatura * 1.8 + 32;
             else if (conversao == ConversaoTemperatura.FahrenheitCelsius)
-                return temperatura - 32 / 1.8;
+                return (temperatura - 32) / 1.8;
 
             return -1;
         }
